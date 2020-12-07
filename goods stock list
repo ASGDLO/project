@@ -1,0 +1,16 @@
+import pandas as pd
+index = ["apple","orange","banana","strawberry","kiwi"]
+data = [10,5,8,12,3]
+series = pd.Series(data, index = index)
+
+data ={"fruits": ["apple","orange","banana","strawberry","kiwi"],
+       "year":[2001,2002,2001,2008,2006],
+       "time":[1,4,5,6,3]}
+
+df = pd.DataFrame(data)
+
+print("Series 데이터")
+print(series)
+print("\n")
+print("DataFrame 데이터")
+print(df)
