@@ -1,0 +1,13 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+days = np.arange(1,11)
+weight = np.array([10,14,12,32,23,13,3,2,34,12])
+
+plt.ylim([0,weight.max() +1])
+plt.xlabel("days")
+plt.ylabel("weight")
+
+plt.plot(days,weight, marker="o" , markerfacecolor="k")
+plt.show()
+plt.show()
