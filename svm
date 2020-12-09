@@ -1,0 +1,22 @@
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+from sklearn.svm import LinearSVC
+from sklearn.model_selection import  train_test_split
+from sklearn.datasets import make_classification
+
+X, y = make_classification(n_samples=1000, n_features=2,n_redundant=0,random_state=52)
+train_X, test_X, train_y, test_y= train_test_split(X,y,random_state=52)
+
+model= LinearSVC()
+model.fit(train_X, train_y)
+
+print(model.score(test_X, test_y))
+plt.scatter(X[:,0], X[:,1],c=y, marker=".",cmap= matplotlib.cm.get_cmap(name="bwr"),alpha=0.7)
+
+xi = np.linspace(-10,10)
+y = -model.coef_[0][0] / model.coef_[0][1]*xi- model.intercept_ / model.coef_[0][1]
+plt.plot(xi, y)
+
+plt.xlim(min(X[:, 0]) -0.5, max(X[:,0])+0.5)
+plt.show()
